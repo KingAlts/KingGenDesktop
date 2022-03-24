@@ -34,15 +34,15 @@ namespace KingGenDesktop
             {
                 if (alt.Stock != 0)
                 {
-                    MainForm.form.UpdateAltInfo(alt);//Update the alt info
+                    MainForm.Instance.UpdateAltInfo(alt);//Update the alt info
                 }
                 else
                 {
-                    MainForm.form.UpdateAltInfo(null);//if stock is out then just return null
+                    MainForm.Instance.UpdateAltInfo(null);//if stock is out then just return null
                 }
             } else
             {
-                MainForm.form.UpdateAltInfo(null);//If server returns 204 then it will show alt as null so we just send a null alt
+                MainForm.Instance.UpdateAltInfo(null);//If server returns 204 then it will show alt as null so we just send a null alt
             }
         }
 
@@ -51,11 +51,11 @@ namespace KingGenDesktop
             Profile profile = await kingGen.GetProfileAsync();//As simple as that
             if (profile != null)
             {
-                MainForm.form.UpdateProfileInfo(profile);//Update the profile info
+                MainForm.Instance.UpdateProfileInfo(profile);//Update the profile info
             }
             else
             {
-                MainForm.form.UpdateProfileInfo(null);
+                MainForm.Instance.UpdateProfileInfo(null);//Return null because no info :(
             }
         }
 

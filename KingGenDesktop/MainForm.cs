@@ -6,12 +6,12 @@ namespace KingGenDesktop
 {
     public partial class MainForm : Form
     {
-        public static MainForm form;
+        public static MainForm Instance;
 
         public MainForm()
         {
             InitializeComponent();
-            form = this;
+            Instance = this;
         }
 
         private void closeButton_Click(object sender, EventArgs e)
@@ -42,7 +42,7 @@ namespace KingGenDesktop
                 {
                     stockLabel.Text = "Stock: 0";
                 }
-                this.Update();
+                Update();
             }
             catch (Exception ex)
             {
@@ -66,7 +66,7 @@ namespace KingGenDesktop
                 {
                     stockLabel.Text = "Stock: 0";
                 }
-                this.Update();
+                Update();
             }
             catch (Exception ex)
             {
