@@ -5,7 +5,7 @@ KingGenDesktop
 - Alt generation 
 - Profile Stats
 - Saving Generate alts 
-- Sexy GUI
+- Amazing GUI
 - Compactness : Consists of 2 files (Key.txt and the actual executable)
 
 # Info:
