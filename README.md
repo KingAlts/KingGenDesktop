@@ -1,4 +1,4 @@
-KingGenDesktop
+KingGenDesktop - Work in progress
 
 # Features:
 ## Full access to the KingGen API in a desktop application:
