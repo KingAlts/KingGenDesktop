@@ -29,26 +29,20 @@ namespace KingGenDesktop
 
         public static async Task Generate()//Create a method to generate a new alt
         {
-            Alt alt = await kingGen.GetAltAsync();//As simple as that
+            Alt alt = await kingGen.GetAltAsync();//simple as that
             if (alt != null)
             {
-                if (alt.Stock != 0)
-                {
-                    MainForm.Instance.UpdateAltInfo(alt);//Update the alt info
-                }
-                else
-                {
-                    MainForm.Instance.UpdateAltInfo(null);//if stock is out then just return null
-                }
-            } else
+                MainForm.Instance.UpdateAltInfo(alt);//Update the alt info
+            }
+            else
             {
-                MainForm.Instance.UpdateAltInfo(null);//If server returns 204 then it will show alt as null so we just send a null alt
+                MainForm.Instance.UpdateAltInfo(null);//Return null because no info :(
             }
         }
 
         public static async Task GetProfileInfoAsync()
         {
-            Profile profile = await kingGen.GetProfileAsync();//As simple as that
+            Profile profile = await kingGen.GetProfileAsync();//simple as that
             if (profile != null)
             {
                 MainForm.Instance.UpdateProfileInfo(profile);//Update the profile info

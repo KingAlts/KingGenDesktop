@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections.Generic;
 using System.Windows.Forms;
 using KingGen.Net.Models;
 
@@ -6,6 +7,7 @@ namespace KingGenDesktop
 {
     public partial class MainForm : Form
     {
+        public static List<Alt> generatedAlts = new List<Alt>();
         public static MainForm Instance;
 
         public MainForm()
@@ -28,9 +30,9 @@ namespace KingGenDesktop
         {
             try
             {
-
                 if (alt != null)
                 {
+                    generatedAlts.Add(alt);
                     emailLabel.Text = "Email: " + alt.Email;
                     passwordLabel.Text = "Password: " + alt.Password;
                     altTextBox.Text = KingGenInterface.getCombo(alt);
@@ -39,9 +41,7 @@ namespace KingGenDesktop
                         Clipboard.SetText(KingGenInterface.getCombo(alt));
                 }
                 else
-                {
                     stockLabel.Text = "Stock: 0";
-                }
                 Update();
             }
             catch (Exception ex)
@@ -54,7 +54,6 @@ namespace KingGenDesktop
         {
             try
             {
-
                 if (profile != null)
                 {
                     stockLabel.Text = "Stock: " + profile.Stock;
@@ -63,9 +62,7 @@ namespace KingGenDesktop
                     generatedTodayLabel.Text = "Generated Today: " + profile.GeneratedToday;
                 }
                 else
-                {
                     stockLabel.Text = "Stock: 0";
-                }
                 Update();
             }
             catch (Exception ex)
@@ -76,6 +73,7 @@ namespace KingGenDesktop
         
         private void MainForm_Load(object sender, EventArgs e)
         {
+            AltSaver.Load();
             KingGenInterface.GetProfileInfoAsync();
         }
     }
