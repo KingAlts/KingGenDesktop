@@ -2,12 +2,13 @@
 using System.Collections.Generic;
 using System.Windows.Forms;
 using KingGen.Net.Models;
+#pragma warning disable CS4014
 
 namespace KingGenDesktop
 {
     public partial class MainForm : Form
     {
-        public static List<Alt> generatedAlts = new List<Alt>();
+        public static readonly List<Alt> GeneratedAlts = new List<Alt>();
         public static MainForm Instance;
 
         public MainForm()
@@ -23,7 +24,12 @@ namespace KingGenDesktop
 
         private void generateButton_Click(object sender, EventArgs e)
         {
+            generateButton.Text = "Generating...";
+            #pragma warning disable CS4014
             KingGenInterface.Generate();
+            KingGenInterface.GetProfileInfoAsync();
+#pragma warning restore CS4014
+            generateButton.Text = "Generate";
         }
 
         public void UpdateAltInfo(Alt alt)
@@ -32,21 +38,21 @@ namespace KingGenDesktop
             {
                 if (alt != null)
                 {
-                    generatedAlts.Add(alt);
-                    emailLabel.Text = "Email: " + alt.Email;
-                    passwordLabel.Text = "Password: " + alt.Password;
-                    altTextBox.Text = KingGenInterface.getCombo(alt);
+                    GeneratedAlts.Add(alt);
+                    emailLabel.Text = @"Email: " + alt.Email;
+                    passwordLabel.Text = @"Password: " + alt.Password;
+                    altTextBox.Text = KingGenInterface.GetCombo(alt);
                     dataGridView.Rows.Add(alt.Email, alt.Password);
                     if (clipboardToggleSwitch.Checked)
-                        Clipboard.SetText(KingGenInterface.getCombo(alt));
+                        Clipboard.SetText(KingGenInterface.GetCombo(alt));
                 }
                 else
-                    stockLabel.Text = "Stock: 0";
+                    stockLabel.Text = @"Stock: 0";
                 Update();
             }
             catch (Exception ex)
             {
-                MessageBox.Show("Issue occured grabbing alt info this may have occured because of a slow/non-existant internet connection if not contact: Flash_#5420" + ex.Message, "Error Occured");
+                MessageBox.Show(@"Issue occured grabbing alt info this may have occured because of a slow/non-existant internet connection if not contact: Flash_#5420" + ex.Message, "Error Occured");
             }
         }
 
@@ -56,18 +62,18 @@ namespace KingGenDesktop
             {
                 if (profile != null)
                 {
-                    stockLabel.Text = "Stock: " + profile.Stock;
-                    usernameLabel.Text = "Username: " + profile.Username;
-                    generatedLabel.Text = "Generated: " + profile.Generated;
-                    generatedTodayLabel.Text = "Generated Today: " + profile.GeneratedToday;
+                    stockLabel.Text = @"Stock: " + profile.Stock;
+                    usernameLabel.Text = @"Username: " + profile.Username;
+                    generatedLabel.Text = @"Generated: " + profile.Generated;
+                    generatedTodayLabel.Text = @"Generated Today: " + profile.GeneratedToday;
                 }
                 else
-                    stockLabel.Text = "Stock: 0";
+                    stockLabel.Text = @"Stock: 0";
                 Update();
             }
             catch (Exception ex)
             {
-                MessageBox.Show("Issue occured grabbing alt info this may have occured because of a slow/non-existant internet connection if not contact: Flash_#5420" + ex.Message, "Error Occured");
+                MessageBox.Show(@"Issue occured grabbing alt info this may have occured because of a slow/non-existant internet connection if not contact: Flash_#5420" + ex.Message, "Error Occured");
             }
         }
         

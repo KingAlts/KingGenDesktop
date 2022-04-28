@@ -1,16 +1,11 @@
-﻿using System;
-using System.Collections.Generic;
-using System.IO;
-using System.Linq;
-using System.Reflection;
-using System.Text;
+﻿using System.IO;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using KingGen.Net.Models;
 
 namespace KingGenDesktop
 {
-    internal class KingGenInterface
+    internal static class KingGenInterface
     {
         static string getkey()
         {
@@ -21,7 +16,7 @@ namespace KingGenDesktop
             else
             {
                 File.Create("key.txt");
-                MessageBox.Show("No key found | Please put your key in key.txt");
+                MessageBox.Show(@"No key found | Please put your key in key.txt");
                 return "";
             }
         }
@@ -53,7 +48,7 @@ namespace KingGenDesktop
             }
         }
 
-        public static string getCombo(Alt alt)
+        public static string GetCombo(Alt alt)
         {
             return alt.Email + ":" + alt.Password;
         }
