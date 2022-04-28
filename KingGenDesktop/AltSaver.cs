@@ -15,11 +15,15 @@ namespace KingGenDesktop
             try
             {
                 if (MainForm.GeneratedAlts != null)
-                    File.AppendAllText("alts.json", JsonConvert.SerializeObject(MainForm.GeneratedAlts)); 
+                {
+                    List<Alt> savedAlts = JsonConvert.DeserializeObject<List<Alt>>(File.ReadAllText(@"alts.json"));
+                    savedAlts.AddRange(MainForm.GeneratedAlts);
+                    File.AppendAllText("alts.json", JsonConvert.SerializeObject(savedAlts));
+                }
             }
             catch (Exception ex)
             {
-                MessageBox.Show($@"Error: {ex} | Contact Flash_5420 if this issue persists");
+                Console.WriteLine($@"Error: {ex} | Contact Flash_5420 if this issue persists");
             }
         }
 
@@ -29,8 +33,7 @@ namespace KingGenDesktop
             {
                 if (File.Exists("alts.json") && File.ReadAllText("alts.json") != "")
                 {
-                    MainForm.GeneratedAlts.AddRange(JsonConvert.DeserializeObject<List<Alt>>(File.ReadAllText(@"alts.json")));//Add the deserializedobject list to the already generated list
-                    
+                    MainForm.GeneratedAlts.AddRange(JsonConvert.DeserializeObject<List<Alt>>(File.ReadAllText(@"alts.json")));//Add the deserialized object list to the already generated list
                 }
                 else
                 {
@@ -40,7 +43,7 @@ namespace KingGenDesktop
             }
             catch (Exception ex)
             {
-                MessageBox.Show($@"Error: {ex} | Contact Flash_5420 if this issue persists");
+                Console.WriteLine($@"Error: {ex} | Contact Flash_5420 if this issue persists");
             }
         }
     }

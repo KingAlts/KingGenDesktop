@@ -1,4 +1,5 @@
-﻿using System.IO;
+﻿using System;
+using System.IO;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using KingGen.Net.Models;
@@ -7,7 +8,7 @@ namespace KingGenDesktop
 {
     internal static class KingGenInterface
     {
-        static string getkey()
+        static string Getkey()
         {
             if (File.Exists("key.txt"))
             {
@@ -17,14 +18,16 @@ namespace KingGenDesktop
             {
                 File.Create("key.txt");
                 MessageBox.Show(@"No key found | Please put your key in key.txt");
+                Environment.Exit(0);
                 return "";
             }
         }
-        static KingGen.Net.KingGen kingGen = new KingGen.Net.KingGen(getkey());//Create our KingGen object
+
+        private static readonly KingGen.Net.KingGen KingGen = new KingGen.Net.KingGen(Getkey());//Create our KingGen object
 
         public static async Task Generate()//Create a method to generate a new alt
         {
-            Alt alt = await kingGen.GetAltAsync();//simple as that
+            Alt alt = await KingGen.GetAltAsync();//simple as that
             if (alt != null)
             {
                 MainForm.Instance.UpdateAltInfo(alt);//Update the alt info
@@ -37,7 +40,7 @@ namespace KingGenDesktop
 
         public static async Task GetProfileInfoAsync()
         {
-            Profile profile = await kingGen.GetProfileAsync();//simple as that
+            Profile profile = await KingGen.GetProfileAsync();//simple as that
             if (profile != null)
             {
                 MainForm.Instance.UpdateProfileInfo(profile);//Update the profile info

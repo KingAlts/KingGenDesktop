@@ -19,17 +19,19 @@ namespace KingGenDesktop
 
         private void closeButton_Click(object sender, EventArgs e)
         {
+            AltSaver.Save();
             Environment.Exit(0);//Exit the program when the close button is clicked
         }
 
         private void generateButton_Click(object sender, EventArgs e)
         {
-            generateButton.Text = "Generating...";
+            generateButton.Text = @"Generating...";
             #pragma warning disable CS4014
             KingGenInterface.Generate();
             KingGenInterface.GetProfileInfoAsync();
-#pragma warning restore CS4014
-            generateButton.Text = "Generate";
+            #pragma warning restore CS4014
+            generateButton.Text = @"Generate";
+            AltSaver.Save();
         }
 
         public void UpdateAltInfo(Alt alt)
@@ -52,7 +54,7 @@ namespace KingGenDesktop
             }
             catch (Exception ex)
             {
-                MessageBox.Show(@"Issue occured grabbing alt info this may have occured because of a slow/non-existant internet connection if not contact: Flash_#5420" + ex.Message, "Error Occured");
+                MessageBox.Show(@"Issue occured grabbing alt info this may have occured because of a slow/non-existant internet connection if not contact: Flash_#5420" + ex.Message, @"Error Occured");
             }
         }
 
@@ -73,7 +75,7 @@ namespace KingGenDesktop
             }
             catch (Exception ex)
             {
-                MessageBox.Show(@"Issue occured grabbing alt info this may have occured because of a slow/non-existant internet connection if not contact: Flash_#5420" + ex.Message, "Error Occured");
+                MessageBox.Show(@"Issue occured grabbing alt info this may have occured because of a slow/non-existant internet connection if not contact: Flash_#5420" + ex.Message, @"Error Occured");
             }
         }
         
