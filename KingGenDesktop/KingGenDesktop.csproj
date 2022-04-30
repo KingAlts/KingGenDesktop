@@ -258,12 +258,6 @@
     <Content Include="kingalts.ico" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\KingGenCSharp\KingGen\KingGen.csproj">
-      <Project>{04c8e176-e03b-4dd9-b10f-3abe510e870d}</Project>
-      <Name>KingGen</Name>
-    </ProjectReference>
-  </ItemGroup>
-  <ItemGroup>
     <PackageReference Include="Costura.Fody">
       <Version>5.7.0</Version>
       <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
