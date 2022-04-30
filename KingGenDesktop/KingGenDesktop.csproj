@@ -15,6 +15,7 @@
     <Deterministic>true</Deterministic>
     <NuGetPackageImportStamp>
     </NuGetPackageImportStamp>
+    <LangVersion>10</LangVersion>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
     <PlatformTarget>AnyCPU</PlatformTarget>
@@ -265,6 +266,12 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="kingalts.ico" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\KingGenCSharp\KingGen\KingGen.csproj">
+      <Project>{04c8e176-e03b-4dd9-b10f-3abe510e870d}</Project>
+      <Name>KingGen</Name>
+    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <Import Project="..\packages\System.Text.Json.6.0.2\build\System.Text.Json.targets" Condition="Exists('..\packages\System.Text.Json.6.0.2\build\System.Text.Json.targets')" />
