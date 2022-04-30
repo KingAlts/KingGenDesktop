@@ -1,8 +1,9 @@
 ﻿using System;
+using System.Diagnostics.CodeAnalysis;
 using System.IO;
 using System.Threading.Tasks;
 using System.Windows.Forms;
-using KingGen.Net.Models;
+using KingGen.Models;
 
 namespace KingGenDesktop
 {
@@ -23,11 +24,12 @@ namespace KingGenDesktop
             }
         }
 
-        private static readonly KingGen.Net.KingGen KingGen = new KingGen.Net.KingGen(Getkey());//Create our KingGen object
+        [SuppressMessage("ReSharper", "ArrangeObjectCreationWhenTypeEvident")] 
+        private static readonly KingGen.KingGen KingGen = new KingGen.KingGen(Getkey());//Create our KingGen object
 
-        public static async Task Generate()//Create a method to generate a new alt
+        public static void Generate()//Create a method to generate a new alt
         {
-            Alt alt = await KingGen.GetAltAsync();//simple as that
+            Alt alt = KingGen.GetAlt();//simple as that
             if (alt != null)
             {
                 MainForm.Instance.UpdateAltInfo(alt);//Update the alt info
@@ -38,9 +40,9 @@ namespace KingGenDesktop
             }
         }
 
-        public static async Task GetProfileInfoAsync()
+        public static void GetProfileInfoAsync()
         {
-            Profile profile = await KingGen.GetProfileAsync();//simple as that
+            Profile profile = KingGen.GetProfile();//simple as that
             if (profile != null)
             {
                 MainForm.Instance.UpdateProfileInfo(profile);//Update the profile info

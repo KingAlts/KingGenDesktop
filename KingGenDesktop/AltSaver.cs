@@ -1,4 +1,4 @@
-﻿using KingGen.Net.Models;
+﻿using KingGen.Models;
 using Newtonsoft.Json;//Literally the best library ever
 using System;
 using System.Collections.Generic;
