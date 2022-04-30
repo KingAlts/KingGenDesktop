@@ -17,12 +17,20 @@ namespace KingGenDesktop
                 if (MainForm.GeneratedAlts != null)
                 {
                     List<Alt> savedAlts = JsonConvert.DeserializeObject<List<Alt>>(File.ReadAllText(@"alts.json"));
-                    savedAlts.AddRange(MainForm.GeneratedAlts);
-                    File.AppendAllText("alts.json", JsonConvert.SerializeObject(savedAlts));
+                    if (savedAlts != null)//If the alts in the file are not null then we append the file
+                    {
+                        savedAlts.AddRange(MainForm.GeneratedAlts);//Add all of the newely generated alts to the old list to create a combined list
+                        File.WriteAllText("alts.json", JsonConvert.SerializeObject(savedAlts)); //Save said alts
+                    }
+                    else if (MainForm.GeneratedAlts.Count != 0)
+                    {
+                        File.WriteAllText("alts.json", JsonConvert.SerializeObject(MainForm.GeneratedAlts));
+                    }
                 }
             }
             catch (Exception ex)
             {
+                MessageBox.Show(ex.Message);
                 Console.WriteLine($@"Error: {ex} | Contact Flash_5420 if this issue persists");
             }
         }
@@ -37,8 +45,8 @@ namespace KingGenDesktop
                 }
                 else
                 {
-                    File.Create("alts.json");
-                    MessageBox.Show(@"No alts.json file found in the executing directory");
+                    if (!File.Exists("alts.json"))
+                        File.Create("alts.json");
                 }
             }
             catch (Exception ex)

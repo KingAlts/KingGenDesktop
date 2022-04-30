@@ -54,7 +54,7 @@ namespace KingGenDesktop
             }
             catch (Exception ex)
             {
-                MessageBox.Show(@"Issue occured grabbing alt info this may have occured because of a slow/non-existant internet connection if not contact: Flash_#5420" + ex.Message, @"Error Occured");
+                MessageBox.Show(@"Issue occured grabbing alt info this may have occured because of a slow/non-existent internet connection if not contact: Flash_#5420" + ex.Message, @"Error Occured");
             }
         }
 

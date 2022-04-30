@@ -66,7 +66,7 @@
       <HintPath>..\packages\Guna.UI2.WinForms.2.0.3.1\lib\net40\Guna.UI2.dll</HintPath>
     </Reference>
     <Reference Include="KingGen.Net">
-      <HintPath>..\..\KingGen.Net\KingGen.Net\bin\Debug\KingGen.Net.dll</HintPath>
+      <HintPath>..\KingGen.Net\KingGen.Net\bin\x64\Release\KingGen.Net.dll</HintPath>
     </Reference>
     <Reference Include="Microsoft.Bcl.AsyncInterfaces, Version=6.0.0.0, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51, processorArchitecture=MSIL">
       <HintPath>..\packages\Microsoft.Bcl.AsyncInterfaces.6.0.0\lib\net461\Microsoft.Bcl.AsyncInterfaces.dll</HintPath>
