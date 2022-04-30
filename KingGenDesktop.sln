@@ -5,8 +5,6 @@ VisualStudioVersion = 17.1.32228.430
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "KingGenDesktop", "KingGenDesktop\KingGenDesktop.csproj", "{ACFD81A3-FB11-4862-AF55-49136A817C18}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "KingGen", "KingGenCSharp\KingGen\KingGen.csproj", "{04C8E176-E03B-4DD9-B10F-3ABE510E870D}"
-EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -23,14 +21,6 @@ Global
 		{ACFD81A3-FB11-4862-AF55-49136A817C18}.Release|Any CPU.Build.0 = Release|Any CPU
 		{ACFD81A3-FB11-4862-AF55-49136A817C18}.Release|x64.ActiveCfg = Release|x64
 		{ACFD81A3-FB11-4862-AF55-49136A817C18}.Release|x64.Build.0 = Release|x64
-		{04C8E176-E03B-4DD9-B10F-3ABE510E870D}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{04C8E176-E03B-4DD9-B10F-3ABE510E870D}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{04C8E176-E03B-4DD9-B10F-3ABE510E870D}.Debug|x64.ActiveCfg = Debug|Any CPU
-		{04C8E176-E03B-4DD9-B10F-3ABE510E870D}.Debug|x64.Build.0 = Debug|Any CPU
-		{04C8E176-E03B-4DD9-B10F-3ABE510E870D}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{04C8E176-E03B-4DD9-B10F-3ABE510E870D}.Release|Any CPU.Build.0 = Release|Any CPU
-		{04C8E176-E03B-4DD9-B10F-3ABE510E870D}.Release|x64.ActiveCfg = Release|Any CPU
-		{04C8E176-E03B-4DD9-B10F-3ABE510E870D}.Release|x64.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
